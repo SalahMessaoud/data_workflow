@@ -54,3 +54,34 @@ function portal_administrator_role_modules_enabled($modules) {
     );
   }
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function portal_administrator_role_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'user_cancel_confirm_form') {
+    $account = $form['_account']['#value'];
+    if (in_array('portal administrator', $account->roles)) {
+      $portal_admins = "SELECT uid FROM {users_roles} WHERE rid = '%d'";
+      $portal_admins = db_query(
+        $portal_admins,
+        array(PORTAL_ADMINISTRATOR_ROLE_RID)
+      );
+      $count = 0;
+      foreach ($portal_admins as $portal_admin) {
+        $count++;
+      }
+      if ($count < 2) {
+        drupal_set_message(
+          t('
+            Please assign someone else the portal administrator role before
+            deleting this account. There should always be at least one portal
+            administrator user on this site.
+          '),
+          'error'
+        );
+        drupal_goto('/');
+      }
+    }
+  }
+}
