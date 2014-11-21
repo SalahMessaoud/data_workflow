@@ -6,6 +6,8 @@
 
 include_once 'portal_administrator_role.features.inc';
 
+DEFINE('PORTAL_ADMINISTRATOR_ROLE_RID', '27274083');
+
 /**
  * Implements hook_permission().
  */
@@ -35,8 +37,20 @@ function portal_administrator_role_menu_alter(&$items) {
 function portal_administrator_role_modules_enabled($modules) {
   if (in_array($modules, 'data_story_storyteller_role')) {
     user_role_grant_permissions(
-      '27274083',
+      PORTAL_ADMINISTRATOR_ROLE_RID,
       array('assign storyteller role')
+    );
+  }
+  if (in_array($modules, 'data_story')) {
+    user_role_grant_permissions(
+      PORTAL_ADMINISTRATOR_ROLE_RID,
+      array(
+        'create blog content',
+        'delete any blog content',
+        'delete own blog content',
+        'edit any blog content',
+        'edit own blog content',
+      )
     );
   }
 }
