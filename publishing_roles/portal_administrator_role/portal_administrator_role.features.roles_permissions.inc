@@ -21,7 +21,7 @@ function portal_administrator_role_default_roles_permissions() {
       'access content overview' => TRUE,
       'access unpublished data' => TRUE,
       'access user profiles' => TRUE,
-      'administer menu' => TRUE,
+      'administer main-menu menu items' => TRUE,
       'administer nodes' => TRUE,
       'administer taxonomy' => TRUE,
       'administer users' => TRUE,
