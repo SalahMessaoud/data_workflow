@@ -35,13 +35,13 @@ function portal_administrator_role_menu_alter(&$items) {
  * Implements hook_modules_enabled().
  */
 function portal_administrator_role_modules_enabled($modules) {
-  if (in_array($modules, 'data_story_storyteller_role')) {
+  if (in_array('data_story_storyteller_role', $modules)) {
     user_role_grant_permissions(
       PORTAL_ADMINISTRATOR_ROLE_RID,
       array('assign storyteller role')
     );
   }
-  if (in_array($modules, 'data_story')) {
+  if (in_array('data_story', $modules)) {
     user_role_grant_permissions(
       PORTAL_ADMINISTRATOR_ROLE_RID,
       array(
