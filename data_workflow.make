@@ -1,10 +1,6 @@
 core = 7.x
 api = 2
 
-; Adds the ability to add og roles to user with rules
-projects[og][version] = 2.7
-projects[og][subdir] = contrib
-
 projects[entityreference_unpublished_node][download][type] = git
 projects[entityreference_unpublished_node][download][url] = "http://git.drupal.org/sandbox/Ayrmax/1977458.git"
 projects[entityreference_unpublished_node][subdir] = contrib
