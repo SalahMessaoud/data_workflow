@@ -21,7 +21,6 @@ function group_organizer_role_default_roles_permissions() {
       'access content overview' => TRUE,
       'access unpublished data' => TRUE,
       'administer group' => TRUE,
-      'assign group organizer role' => TRUE,
       'create group content' => TRUE,
       'delete any group content' => TRUE,
       'delete own group content' => TRUE,

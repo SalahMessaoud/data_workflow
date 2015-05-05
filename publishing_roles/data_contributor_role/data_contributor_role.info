@@ -12,4 +12,5 @@ dependencies[] = role_export
 features[features_api][] = api:2
 features[roles_permissions][] = data contributor
 features[user_role][] = data contributor
+mtime = 1429126614
 project path = sites/all/modules/nucivic/data_workflow/publishing_roles

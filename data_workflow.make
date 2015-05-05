@@ -29,3 +29,10 @@ projects[role_export][subdir] = contrib
 
 projects[view_unpublished][version] = 1.x-dev
 projects[view_unpublished][subdir] = contrib
+
+projects[workbench][version] = 7.x-1.2
+projects[workbench][subdir] = contrib
+
+projects[workbench_moderation][version] = 7.x-1.4
+projects[workbench_moderation][subdir] = contrib
+

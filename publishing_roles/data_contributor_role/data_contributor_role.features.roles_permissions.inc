@@ -27,7 +27,11 @@ function data_contributor_role_default_roles_permissions() {
       'edit own dataset content' => TRUE,
       'edit own resource content' => TRUE,
       'manage datastore' => TRUE,
+      'moderate content from draft to needs_review' => TRUE,
       'reference unpublished nodes' => TRUE,
+      'use workbench_moderation my drafts tab' => TRUE,
+      'view moderation history' => TRUE,
+      'view moderation messages' => TRUE,
       'view own unpublished content' => TRUE,
     ),
   );
