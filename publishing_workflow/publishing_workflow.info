@@ -24,6 +24,7 @@ features[rules_config][] = rules_author_saves_dataset_or_resource
 features[rules_config][] = rules_editor_publish_dataset_or_resource
 features[views_view][] = dkan_workflow_workbench
 features[variable][] = workbench_moderation_default_state_dataset
+features[variable][] = workbench_moderation_default_state_resource
 features[views_view][] = unpublished_data
 features_exclude[dependencies][ctools] = ctools
 project path = sites/all/modules/nucivic/data_workflow
