@@ -10,6 +10,7 @@ dependencies[] = entity
 dependencies[] = features
 dependencies[] = menu
 dependencies[] = portal_administrator_role
+dependencies[] = publishing_workflow
 dependencies[] = role_export
 dependencies[] = rules
 dependencies[] = strongarm
