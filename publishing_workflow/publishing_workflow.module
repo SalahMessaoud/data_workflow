@@ -15,6 +15,10 @@ function publishing_workflow_permission() {
       'title' => t('Access Unpublished Data'),
       'description' => t('Grant access to unpublished data page.'),
     ),
+    'access needs attention page' => array(
+      'title' => t('Access Needs Attention Page'),
+      'description' => t('Grant access to Needs attention page.'),
+    ),
   );
 }
 
@@ -36,7 +40,7 @@ function publishing_workflow_form_alter(&$form, &$form_state, $form_id) {
       	$status = $is_portal_admin || $is_editor || $is_administrator ? 1 : 0;
         $form['options']['status']['#default_value'] = $status;
       }
-      
+
       // Hide promote and sticky options for content editor.
       if ($is_editor) {
         $form['options']['promote']['#type'] = 'hidden';
