@@ -235,14 +235,15 @@ function publishing_workflow_views_default_views() {
   $handler->display->display_options['filters']['is_current']['table'] = 'workbench_moderation_node_history';
   $handler->display->display_options['filters']['is_current']['field'] = 'is_current';
 
-  /* Display: Needs attention page */
-  $handler = $view->new_display('page', 'Needs attention page', 'page_1');
+  /* Display: Stale reviews */
+  $handler = $view->new_display('page', 'Stale reviews', 'page_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Needs attention';
+  $handler->display->display_options['title'] = 'Stale reviews';
+  $handler->display->display_options['display_description'] = 'All content stuck in Needs Review for 48 hours or more';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['access']['perm'] = 'access needs attention page';
+  $handler->display->display_options['access']['perm'] = 'access stale reviews page';
   $handler->display->display_options['defaults']['empty'] = FALSE;
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
@@ -301,9 +302,85 @@ function publishing_workflow_views_default_views() {
   $handler->display->display_options['filters']['stamp']['expose']['label'] = 'Timestamp';
   $handler->display->display_options['filters']['stamp']['expose']['operator'] = 'stamp_op';
   $handler->display->display_options['filters']['stamp']['expose']['identifier'] = 'stamp';
-  $handler->display->display_options['path'] = 'admin/workbench/needs-attention';
+  $handler->display->display_options['path'] = 'admin/workbench/stale-reviews';
   $handler->display->display_options['menu']['type'] = 'tab';
-  $handler->display->display_options['menu']['title'] = 'Needs attention';
+  $handler->display->display_options['menu']['title'] = 'Stale reviews';
+  $handler->display->display_options['menu']['description'] = 'All content stuck in Needs Review for 48 hours or more';
+  $handler->display->display_options['menu']['weight'] = '100';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Stale drafts */
+  $handler = $view->new_display('page', 'Stale drafts', 'page_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Stale drafts';
+  $handler->display->display_options['display_description'] = 'All content stuck in Draft for 72 hours or more';
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['perm'] = 'access stale drafts page';
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['content'] = 'This list displays content in the "Needs review" state that you can moderate. Currently there is no such content.';
+  $handler->display->display_options['empty']['area']['format'] = 'plain_text';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Workbench Moderation: Current */
+  $handler->display->display_options['filters']['is_current']['id'] = 'is_current';
+  $handler->display->display_options['filters']['is_current']['table'] = 'workbench_moderation_node_history';
+  $handler->display->display_options['filters']['is_current']['field'] = 'is_current';
+  $handler->display->display_options['filters']['is_current']['value'] = '1';
+  /* Filter criterion: Workbench Moderation: State */
+  $handler->display->display_options['filters']['state']['id'] = 'state';
+  $handler->display->display_options['filters']['state']['table'] = 'workbench_moderation_node_history';
+  $handler->display->display_options['filters']['state']['field'] = 'state';
+  $handler->display->display_options['filters']['state']['value'] = array(
+    'draft' => 'draft',
+  );
+  $handler->display->display_options['filters']['state']['expose']['label'] = 'Workbench Moderation: State';
+  $handler->display->display_options['filters']['state']['expose']['operator'] = 'state_op';
+  $handler->display->display_options['filters']['state']['expose']['identifier'] = 'state';
+  /* Filter criterion: Content: Title */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['relationship'] = 'nid';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Title';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember'] = TRUE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['relationship'] = 'nid';
+  $handler->display->display_options['filters']['type']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
+  $handler->display->display_options['filters']['type']['expose']['label'] = 'Type';
+  $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
+  $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
+  $handler->display->display_options['filters']['type']['expose']['remember'] = TRUE;
+  /* Filter criterion: Workbench Moderation: Timestamp */
+  $handler->display->display_options['filters']['stamp']['id'] = 'stamp';
+  $handler->display->display_options['filters']['stamp']['table'] = 'workbench_moderation_node_history';
+  $handler->display->display_options['filters']['stamp']['field'] = 'stamp';
+  $handler->display->display_options['filters']['stamp']['operator'] = '<';
+  $handler->display->display_options['filters']['stamp']['value']['value'] = '-72 hours';
+  $handler->display->display_options['filters']['stamp']['value']['type'] = 'offset';
+  $handler->display->display_options['filters']['stamp']['expose']['operator_id'] = 'stamp_op';
+  $handler->display->display_options['filters']['stamp']['expose']['label'] = 'Timestamp';
+  $handler->display->display_options['filters']['stamp']['expose']['operator'] = 'stamp_op';
+  $handler->display->display_options['filters']['stamp']['expose']['identifier'] = 'stamp';
+  $handler->display->display_options['path'] = 'admin/workbench/stale-drafts';
+  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['title'] = 'Stale drafts';
+  $handler->display->display_options['menu']['description'] = 'All content stuck in Draft for 72 hours or more';
   $handler->display->display_options['menu']['weight'] = '100';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
