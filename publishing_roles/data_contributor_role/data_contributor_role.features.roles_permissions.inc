@@ -20,6 +20,7 @@ function data_contributor_role_default_roles_permissions() {
       'access administration pages' => TRUE,
       'access content overview' => TRUE,
       'access unpublished data' => TRUE,
+      'access workbench' => TRUE,
       'create dataset content' => TRUE,
       'create resource content' => TRUE,
       'delete own dataset content' => TRUE,
@@ -28,6 +29,7 @@ function data_contributor_role_default_roles_permissions() {
       'edit own resource content' => TRUE,
       'manage datastore' => TRUE,
       'reference unpublished nodes' => TRUE,
+      'use workbench_moderation my drafts tab' => TRUE,
       'view own unpublished content' => TRUE,
     ),
   );
