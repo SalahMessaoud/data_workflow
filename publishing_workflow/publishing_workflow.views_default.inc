@@ -132,6 +132,7 @@ function publishing_workflow_views_default_views() {
   $handler->display->display_options['fields']['workbench_moderation_history_link']['id'] = 'workbench_moderation_history_link';
   $handler->display->display_options['fields']['workbench_moderation_history_link']['table'] = 'node';
   $handler->display->display_options['fields']['workbench_moderation_history_link']['field'] = 'workbench_moderation_history_link';
+  $handler->display->display_options['fields']['workbench_moderation_history_link']['relationship'] = 'nid';
   $handler->display->display_options['fields']['workbench_moderation_history_link']['exclude'] = TRUE;
   $handler->display->display_options['fields']['workbench_moderation_history_link']['hide_alter_empty'] = FALSE;
   /* Field: Moderation state */
