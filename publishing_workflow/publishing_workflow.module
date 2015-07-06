@@ -91,3 +91,9 @@ function publishing_workflow_reviewers($node){
   }
   return array('reviewers' => $reviewers);
 }
+
+function publishing_workflow_block_info_alter(&$blocks, $theme, $code_blocks) {
+  if ($blocks['workbench']['block']['region'] == 'content') {
+    $blocks['workbench']['block']['status'] = 0;
+  }
+}
