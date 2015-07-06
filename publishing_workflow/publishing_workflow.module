@@ -15,6 +15,14 @@ function publishing_workflow_permission() {
       'title' => t('Access Unpublished Data'),
       'description' => t('Grant access to unpublished data page.'),
     ),
+    'access stale reviews page' => array(
+      'title' => t('Access Stale Reviews Page'),
+      'description' => t('Grant access to stale reviews page.'),
+    ),
+    'access stale drafts page' => array(
+      'title' => t('Access Stale Drafts Page'),
+      'description' => t('Grant access to stale drafts page.'),
+    ),
   );
 }
 
@@ -36,7 +44,7 @@ function publishing_workflow_form_alter(&$form, &$form_state, $form_id) {
       	$status = $is_portal_admin || $is_editor || $is_administrator ? 1 : 0;
         $form['options']['status']['#default_value'] = $status;
       }
-      
+
       // Hide promote and sticky options for content editor.
       if ($is_editor) {
         $form['options']['promote']['#type'] = 'hidden';
