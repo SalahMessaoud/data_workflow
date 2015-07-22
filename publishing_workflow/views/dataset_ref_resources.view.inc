@@ -216,6 +216,14 @@ $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
 $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
 $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
 $handler->display->display_options['fields']['edit_node']['label'] = 'Edit';
+/* Field: Workbench Moderation: Published */
+$handler->display->display_options['fields']['published']['id'] = 'published';
+$handler->display->display_options['fields']['published']['table'] = 'workbench_moderation_node_history';
+$handler->display->display_options['fields']['published']['field'] = 'published';
+/* Field: Workbench Moderation: State */
+$handler->display->display_options['fields']['state']['id'] = 'state';
+$handler->display->display_options['fields']['state']['table'] = 'workbench_moderation_node_history';
+$handler->display->display_options['fields']['state']['field'] = 'state';
 /* Sort criterion: Content: Post date */
 $handler->display->display_options['sorts']['created']['id'] = 'created';
 $handler->display->display_options['sorts']['created']['table'] = 'node';

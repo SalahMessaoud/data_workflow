@@ -78,19 +78,36 @@ $handler->display->display_options['fields']['title']['alter']['text'] = '[title
 $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
 $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
 $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-/* Field: Content: Edit link */
-$handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
-$handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
-$handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
-$handler->display->display_options['fields']['edit_node']['relationship'] = 'nid';
-$handler->display->display_options['fields']['edit_node']['label'] = 'Edit';
+/* Field: Content: Title */
+$handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+$handler->display->display_options['fields']['title_1']['table'] = 'node';
+$handler->display->display_options['fields']['title_1']['field'] = 'title';
+$handler->display->display_options['fields']['title_1']['relationship'] = 'nid';
+$handler->display->display_options['fields']['title_1']['label'] = '';
+$handler->display->display_options['fields']['title_1']['exclude'] = TRUE;
+$handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['title_1']['element_default_classes'] = FALSE;
+$handler->display->display_options['fields']['title_1']['link_to_node'] = FALSE;
+/* Field: Content: Nid */
+$handler->display->display_options['fields']['nid_2']['id'] = 'nid_2';
+$handler->display->display_options['fields']['nid_2']['table'] = 'node';
+$handler->display->display_options['fields']['nid_2']['field'] = 'nid';
+$handler->display->display_options['fields']['nid_2']['relationship'] = 'nid';
+$handler->display->display_options['fields']['nid_2']['label'] = '';
+$handler->display->display_options['fields']['nid_2']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['nid_2']['alter']['text'] = '<p class="help-block">Edit the moderation state of [title_1] dataset and its resources below.</p>
+<h3>Dataset:</h3>
+<strong>Edit:</strong> <a href="/node/[nid_1]/edit">[title_1]</a>';
+$handler->display->display_options['fields']['nid_2']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['nid_2']['element_default_classes'] = FALSE;
 /* Field: Moderation state */
 $handler->display->display_options['fields']['state']['id'] = 'state';
 $handler->display->display_options['fields']['state']['table'] = 'workbench_moderation_node_history';
 $handler->display->display_options['fields']['state']['field'] = 'state';
 $handler->display->display_options['fields']['state']['ui_name'] = 'Moderation state';
-$handler->display->display_options['fields']['state']['label'] = 'Moderation state';
+$handler->display->display_options['fields']['state']['label'] = 'Current Moderation state';
 $handler->display->display_options['fields']['state']['alter']['text'] = '<div>[state]</div>';
+$handler->display->display_options['fields']['state']['element_label_type'] = 'strong';
 $handler->display->display_options['fields']['state']['hide_alter_empty'] = FALSE;
 $handler->display->display_options['fields']['state']['machine_name'] = 0;
 /* Field: Workbench Moderation: Moderation links */
@@ -98,11 +115,16 @@ $handler->display->display_options['fields']['moderation_actions']['id'] = 'mode
 $handler->display->display_options['fields']['moderation_actions']['table'] = 'workbench_moderation_node_history';
 $handler->display->display_options['fields']['moderation_actions']['field'] = 'moderation_actions';
 $handler->display->display_options['fields']['moderation_actions']['label'] = 'Set moderation state';
+$handler->display->display_options['fields']['moderation_actions']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['moderation_actions']['alter']['text'] = '[moderation_actions]';
+$handler->display->display_options['fields']['moderation_actions']['element_label_type'] = 'strong';
 /* Field: Global: View */
 $handler->display->display_options['fields']['view']['id'] = 'view';
 $handler->display->display_options['fields']['view']['table'] = 'views';
 $handler->display->display_options['fields']['view']['field'] = 'view';
 $handler->display->display_options['fields']['view']['label'] = 'Resources';
+$handler->display->display_options['fields']['view']['element_label_type'] = 'h3';
+$handler->display->display_options['fields']['view']['element_default_classes'] = FALSE;
 $handler->display->display_options['fields']['view']['view'] = 'dataset_ref_resources';
 $handler->display->display_options['fields']['view']['arguments'] = '[!nid]';
 /* Sort criterion: Content: Updated date */
@@ -146,10 +168,10 @@ $handler->display->display_options['filters']['state']['table'] = 'workbench_mod
 $handler->display->display_options['filters']['state']['field'] = 'state';
 $handler->display->display_options['filters']['state']['value'] = array(
   'all' => 'all',
-  'draft' => 'draft',
-  'needs_review' => 'needs_review',
-  'published' => 'published',
-);
+    'draft' => 'draft',
+      'needs_review' => 'needs_review',
+        'published' => 'published',
+        );
 $handler->display->display_options['filters']['state']['exposed'] = TRUE;
 $handler->display->display_options['filters']['state']['expose']['operator_id'] = 'state_op';
 $handler->display->display_options['filters']['state']['expose']['label'] = 'State';
@@ -190,7 +212,7 @@ $handler->display->display_options['filters']['state']['table'] = 'workbench_mod
 $handler->display->display_options['filters']['state']['field'] = 'state';
 $handler->display->display_options['filters']['state']['value'] = array(
   'needs_review' => 'needs_review',
-);
+  );
 $handler->display->display_options['filters']['state']['expose']['label'] = 'Workbench Moderation: State';
 $handler->display->display_options['filters']['state']['expose']['operator'] = 'state_op';
 $handler->display->display_options['filters']['state']['expose']['identifier'] = 'state';
@@ -256,7 +278,7 @@ $handler->display->display_options['filters']['state_1']['field'] = 'state';
 $handler->display->display_options['filters']['state_1']['operator'] = 'not in';
 $handler->display->display_options['filters']['state_1']['value'] = array(
   'published' => 'published',
-);
+  );
 $handler->display->display_options['filters']['state_1']['group'] = 1;
 /* Filter criterion: Content: Title */
 $handler->display->display_options['filters']['title']['id'] = 'title';
@@ -289,8 +311,8 @@ $handler->display->display_options['filters']['state']['table'] = 'workbench_mod
 $handler->display->display_options['filters']['state']['field'] = 'state';
 $handler->display->display_options['filters']['state']['value'] = array(
   'draft' => 'draft',
-  'needs_review' => 'needs_review',
-);
+    'needs_review' => 'needs_review',
+    );
 $handler->display->display_options['filters']['state']['group'] = 1;
 $handler->display->display_options['filters']['state']['exposed'] = TRUE;
 $handler->display->display_options['filters']['state']['expose']['operator_id'] = 'state_op';
