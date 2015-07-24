@@ -126,6 +126,7 @@ $handler->display->display_options['fields']['view']['label'] = 'Resources';
 $handler->display->display_options['fields']['view']['element_label_type'] = 'h3';
 $handler->display->display_options['fields']['view']['element_default_classes'] = FALSE;
 $handler->display->display_options['fields']['view']['view'] = 'dataset_ref_resources';
+$handler->display->display_options['fields']['view']['display'] = 'page';
 $handler->display->display_options['fields']['view']['arguments'] = '[!nid]';
 /* Sort criterion: Content: Updated date */
 $handler->display->display_options['sorts']['changed']['id'] = 'changed';
@@ -325,3 +326,4 @@ $handler->display->display_options['path'] = 'admin/workbench/drafts';
 $handler->display->display_options['menu']['type'] = 'tab';
 $handler->display->display_options['menu']['title'] = 'My drafts';
 $handler->display->display_options['menu']['weight'] = '98';
+
