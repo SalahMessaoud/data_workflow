@@ -13,6 +13,7 @@ $view->disabled = FALSE; /* Edit this to true to make a default view disabled in
 $handler = $view->new_display('default', 'Master', 'default');
 $handler->display->display_options['use_more_always'] = FALSE;
 $handler->display->display_options['access']['type'] = 'perm';
+$handler->display->display_options['access']['perm'] = 'use workbench_moderation my drafts tab';
 $handler->display->display_options['cache']['type'] = 'none';
 $handler->display->display_options['query']['type'] = 'views_query';
 $handler->display->display_options['query']['options']['distinct'] = TRUE;
@@ -51,7 +52,6 @@ $handler->display->display_options['fields']['views_bulk_operations']['table'] =
 $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
 $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_type'] = '1';
 $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['enable_select_all_pages'] = 0;
-$handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['row_clickable'] = 1;
 $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
 $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['entity_load_capacity'] = '10';
 $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['skip_batching'] = 1;
@@ -120,8 +120,12 @@ $handler->display->display_options['filters']['type']['field'] = 'type';
 $handler->display->display_options['filters']['type']['value'] = array(
   'resource' => 'resource',
 );
+/* Filter criterion: Workbench Moderation: Current */
+$handler->display->display_options['filters']['is_current']['id'] = 'is_current';
+$handler->display->display_options['filters']['is_current']['table'] = 'workbench_moderation_node_history';
+$handler->display->display_options['filters']['is_current']['field'] = 'is_current';
+$handler->display->display_options['filters']['is_current']['value'] = '1';
 
 /* Display: Page */
 $handler = $view->new_display('page', 'Page', 'page');
 $handler->display->display_options['path'] = 'admin/workbench/needs-review/vbo';
-

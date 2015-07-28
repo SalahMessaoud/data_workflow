@@ -169,10 +169,10 @@ $handler->display->display_options['filters']['state']['table'] = 'workbench_mod
 $handler->display->display_options['filters']['state']['field'] = 'state';
 $handler->display->display_options['filters']['state']['value'] = array(
   'all' => 'all',
-    'draft' => 'draft',
-      'needs_review' => 'needs_review',
-        'published' => 'published',
-        );
+  'draft' => 'draft',
+  'needs_review' => 'needs_review',
+  'published' => 'published',
+);
 $handler->display->display_options['filters']['state']['exposed'] = TRUE;
 $handler->display->display_options['filters']['state']['expose']['operator_id'] = 'state_op';
 $handler->display->display_options['filters']['state']['expose']['label'] = 'State';
@@ -213,7 +213,7 @@ $handler->display->display_options['filters']['state']['table'] = 'workbench_mod
 $handler->display->display_options['filters']['state']['field'] = 'state';
 $handler->display->display_options['filters']['state']['value'] = array(
   'needs_review' => 'needs_review',
-  );
+);
 $handler->display->display_options['filters']['state']['expose']['label'] = 'Workbench Moderation: State';
 $handler->display->display_options['filters']['state']['expose']['operator'] = 'state_op';
 $handler->display->display_options['filters']['state']['expose']['identifier'] = 'state';
@@ -234,6 +234,9 @@ $handler->display->display_options['filters']['type']['id'] = 'type';
 $handler->display->display_options['filters']['type']['table'] = 'node';
 $handler->display->display_options['filters']['type']['field'] = 'type';
 $handler->display->display_options['filters']['type']['relationship'] = 'nid';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'dataset' => 'dataset',
+);
 $handler->display->display_options['filters']['type']['exposed'] = TRUE;
 $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
 $handler->display->display_options['filters']['type']['expose']['label'] = 'Type';
@@ -279,7 +282,7 @@ $handler->display->display_options['filters']['state_1']['field'] = 'state';
 $handler->display->display_options['filters']['state_1']['operator'] = 'not in';
 $handler->display->display_options['filters']['state_1']['value'] = array(
   'published' => 'published',
-  );
+);
 $handler->display->display_options['filters']['state_1']['group'] = 1;
 /* Filter criterion: Content: Title */
 $handler->display->display_options['filters']['title']['id'] = 'title';
@@ -299,6 +302,9 @@ $handler->display->display_options['filters']['type']['id'] = 'type';
 $handler->display->display_options['filters']['type']['table'] = 'node';
 $handler->display->display_options['filters']['type']['field'] = 'type';
 $handler->display->display_options['filters']['type']['relationship'] = 'nid';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'dataset' => 'dataset',
+);
 $handler->display->display_options['filters']['type']['group'] = 1;
 $handler->display->display_options['filters']['type']['exposed'] = TRUE;
 $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
@@ -312,8 +318,8 @@ $handler->display->display_options['filters']['state']['table'] = 'workbench_mod
 $handler->display->display_options['filters']['state']['field'] = 'state';
 $handler->display->display_options['filters']['state']['value'] = array(
   'draft' => 'draft',
-    'needs_review' => 'needs_review',
-    );
+  'needs_review' => 'needs_review',
+);
 $handler->display->display_options['filters']['state']['group'] = 1;
 $handler->display->display_options['filters']['state']['exposed'] = TRUE;
 $handler->display->display_options['filters']['state']['expose']['operator_id'] = 'state_op';
@@ -326,4 +332,3 @@ $handler->display->display_options['path'] = 'admin/workbench/drafts';
 $handler->display->display_options['menu']['type'] = 'tab';
 $handler->display->display_options['menu']['title'] = 'My drafts';
 $handler->display->display_options['menu']['weight'] = '98';
-
