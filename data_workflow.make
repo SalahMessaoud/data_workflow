@@ -43,3 +43,10 @@ projects[views_accordion][subdir] = contrib
 
 projects[views_field_view][version] = 1.1
 projects[views_field_view][subdir] = contrib
+
+projects[menu_badges][version] = 1.2
+projects[menu_badges][subdir] = contrib
+
+projects[link_badges][version] = 1.1
+projects[link_badges][subdir] = contrib
+

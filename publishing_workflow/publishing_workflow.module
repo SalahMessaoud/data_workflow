@@ -109,3 +109,12 @@ function publishing_workflow_block_info_alter(&$blocks, $theme, $code_blocks) {
     $blocks['workbench']['block']['status'] = 0;
   }
 }
+
+/**
+ * Implements hook_css_alter().
+ */
+function publishing_workflow_css_alter(&$css) {
+  if (isset($css['sites/all/modules/contrib/link_badges/link_badges.css'])) {
+    $css['sites/all/modules/contrib/link_badges/link_badges.css']['data'] = drupal_get_path('module', 'publishing_workflow') . '/css/link_badges_custom.css';
+  }
+}
