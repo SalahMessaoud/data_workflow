@@ -78,36 +78,19 @@ $handler->display->display_options['fields']['title']['alter']['text'] = '[title
 $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
 $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
 $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-/* Field: Content: Title */
-$handler->display->display_options['fields']['title_1']['id'] = 'title_1';
-$handler->display->display_options['fields']['title_1']['table'] = 'node';
-$handler->display->display_options['fields']['title_1']['field'] = 'title';
-$handler->display->display_options['fields']['title_1']['relationship'] = 'nid';
-$handler->display->display_options['fields']['title_1']['label'] = '';
-$handler->display->display_options['fields']['title_1']['exclude'] = TRUE;
-$handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
-$handler->display->display_options['fields']['title_1']['element_default_classes'] = FALSE;
-$handler->display->display_options['fields']['title_1']['link_to_node'] = FALSE;
-/* Field: Content: Nid */
-$handler->display->display_options['fields']['nid_2']['id'] = 'nid_2';
-$handler->display->display_options['fields']['nid_2']['table'] = 'node';
-$handler->display->display_options['fields']['nid_2']['field'] = 'nid';
-$handler->display->display_options['fields']['nid_2']['relationship'] = 'nid';
-$handler->display->display_options['fields']['nid_2']['label'] = '';
-$handler->display->display_options['fields']['nid_2']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['nid_2']['alter']['text'] = '<p class="help-block">Edit the moderation state of [title_1] dataset and its resources below.</p>
-<h3>Dataset:</h3>
-<strong>Edit:</strong> <a href="/node/[nid_1]/edit">[title_1]</a>';
-$handler->display->display_options['fields']['nid_2']['element_label_colon'] = FALSE;
-$handler->display->display_options['fields']['nid_2']['element_default_classes'] = FALSE;
+/* Field: Content: Edit link */
+$handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+$handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+$handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+$handler->display->display_options['fields']['edit_node']['relationship'] = 'nid';
+$handler->display->display_options['fields']['edit_node']['label'] = 'Edit';
 /* Field: Moderation state */
 $handler->display->display_options['fields']['state']['id'] = 'state';
 $handler->display->display_options['fields']['state']['table'] = 'workbench_moderation_node_history';
 $handler->display->display_options['fields']['state']['field'] = 'state';
 $handler->display->display_options['fields']['state']['ui_name'] = 'Moderation state';
-$handler->display->display_options['fields']['state']['label'] = 'Current Moderation state';
+$handler->display->display_options['fields']['state']['label'] = 'Moderation state';
 $handler->display->display_options['fields']['state']['alter']['text'] = '<div>[state]</div>';
-$handler->display->display_options['fields']['state']['element_label_type'] = 'strong';
 $handler->display->display_options['fields']['state']['hide_alter_empty'] = FALSE;
 $handler->display->display_options['fields']['state']['machine_name'] = 0;
 /* Field: Workbench Moderation: Moderation links */
@@ -115,18 +98,12 @@ $handler->display->display_options['fields']['moderation_actions']['id'] = 'mode
 $handler->display->display_options['fields']['moderation_actions']['table'] = 'workbench_moderation_node_history';
 $handler->display->display_options['fields']['moderation_actions']['field'] = 'moderation_actions';
 $handler->display->display_options['fields']['moderation_actions']['label'] = 'Set moderation state';
-$handler->display->display_options['fields']['moderation_actions']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['moderation_actions']['alter']['text'] = '[moderation_actions]';
-$handler->display->display_options['fields']['moderation_actions']['element_label_type'] = 'strong';
 /* Field: Global: View */
 $handler->display->display_options['fields']['view']['id'] = 'view';
 $handler->display->display_options['fields']['view']['table'] = 'views';
 $handler->display->display_options['fields']['view']['field'] = 'view';
 $handler->display->display_options['fields']['view']['label'] = 'Resources';
-$handler->display->display_options['fields']['view']['element_label_type'] = 'h3';
-$handler->display->display_options['fields']['view']['element_default_classes'] = FALSE;
 $handler->display->display_options['fields']['view']['view'] = 'dataset_ref_resources';
-$handler->display->display_options['fields']['view']['display'] = 'page';
 $handler->display->display_options['fields']['view']['arguments'] = '[!nid]';
 /* Sort criterion: Content: Updated date */
 $handler->display->display_options['sorts']['changed']['id'] = 'changed';
@@ -234,9 +211,6 @@ $handler->display->display_options['filters']['type']['id'] = 'type';
 $handler->display->display_options['filters']['type']['table'] = 'node';
 $handler->display->display_options['filters']['type']['field'] = 'type';
 $handler->display->display_options['filters']['type']['relationship'] = 'nid';
-$handler->display->display_options['filters']['type']['value'] = array(
-  'dataset' => 'dataset',
-);
 $handler->display->display_options['filters']['type']['exposed'] = TRUE;
 $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
 $handler->display->display_options['filters']['type']['expose']['label'] = 'Type';
@@ -302,9 +276,6 @@ $handler->display->display_options['filters']['type']['id'] = 'type';
 $handler->display->display_options['filters']['type']['table'] = 'node';
 $handler->display->display_options['filters']['type']['field'] = 'type';
 $handler->display->display_options['filters']['type']['relationship'] = 'nid';
-$handler->display->display_options['filters']['type']['value'] = array(
-  'dataset' => 'dataset',
-);
 $handler->display->display_options['filters']['type']['group'] = 1;
 $handler->display->display_options['filters']['type']['exposed'] = TRUE;
 $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
@@ -328,6 +299,14 @@ $handler->display->display_options['filters']['state']['expose']['operator'] = '
 $handler->display->display_options['filters']['state']['expose']['identifier'] = 'state';
 $handler->display->display_options['filters']['state']['expose']['remember'] = TRUE;
 $handler->display->display_options['filters']['state']['expose']['reduce'] = TRUE;
+/* Filter criterion: Content: Type */
+$handler->display->display_options['filters']['type_1']['id'] = 'type_1';
+$handler->display->display_options['filters']['type_1']['table'] = 'node';
+$handler->display->display_options['filters']['type_1']['field'] = 'type';
+$handler->display->display_options['filters']['type_1']['relationship'] = 'nid';
+$handler->display->display_options['filters']['type_1']['value'] = array(
+  'dataset' => 'dataset',
+);
 $handler->display->display_options['path'] = 'admin/workbench/drafts';
 $handler->display->display_options['menu']['type'] = 'tab';
 $handler->display->display_options['menu']['title'] = 'My drafts';
@@ -345,6 +324,20 @@ $handler->display->display_options['pager']['type'] = 'none';
 $handler->display->display_options['pager']['options']['offset'] = '0';
 $handler->display->display_options['style_plugin'] = 'default';
 $handler->display->display_options['row_plugin'] = 'fields';
+/* Relationship: Workbench Moderation: Node */
+$handler->display->display_options['relationships']['nid']['id'] = 'nid';
+$handler->display->display_options['relationships']['nid']['table'] = 'workbench_moderation_node_history';
+$handler->display->display_options['relationships']['nid']['field'] = 'nid';
+$handler->display->display_options['relationships']['nid']['required'] = TRUE;
+/* Relationship: Content revision: User */
+$handler->display->display_options['relationships']['uid']['id'] = 'uid';
+$handler->display->display_options['relationships']['uid']['table'] = 'node_revision';
+$handler->display->display_options['relationships']['uid']['field'] = 'uid';
+/* Relationship: Entity Reference: Referenced Entity */
+$handler->display->display_options['relationships']['field_resources_target_id']['id'] = 'field_resources_target_id';
+$handler->display->display_options['relationships']['field_resources_target_id']['table'] = 'field_data_field_resources';
+$handler->display->display_options['relationships']['field_resources_target_id']['field'] = 'field_resources_target_id';
+$handler->display->display_options['relationships']['field_resources_target_id']['relationship'] = 'nid';
 /* Field: COUNT(DISTINCT Content revision: Nid) */
 $handler->display->display_options['fields']['nid']['id'] = 'nid';
 $handler->display->display_options['fields']['nid']['table'] = 'node_revision';
@@ -359,6 +352,14 @@ $handler->display->display_options['filters']['state']['field'] = 'state';
 $handler->display->display_options['filters']['state']['value'] = array(
   'draft' => 'draft',
 );
+/* Filter criterion: Content: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['relationship'] = 'nid';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'dataset' => 'dataset',
+);
 
 /* Display: Needs Review Badge */
 $handler = $view->new_display('menu_badge', 'Needs Review Badge', 'needs_review_badge');
@@ -372,6 +373,20 @@ $handler->display->display_options['pager']['type'] = 'none';
 $handler->display->display_options['pager']['options']['offset'] = '0';
 $handler->display->display_options['style_plugin'] = 'default';
 $handler->display->display_options['row_plugin'] = 'fields';
+/* Relationship: Workbench Moderation: Node */
+$handler->display->display_options['relationships']['nid']['id'] = 'nid';
+$handler->display->display_options['relationships']['nid']['table'] = 'workbench_moderation_node_history';
+$handler->display->display_options['relationships']['nid']['field'] = 'nid';
+$handler->display->display_options['relationships']['nid']['required'] = TRUE;
+/* Relationship: Content revision: User */
+$handler->display->display_options['relationships']['uid']['id'] = 'uid';
+$handler->display->display_options['relationships']['uid']['table'] = 'node_revision';
+$handler->display->display_options['relationships']['uid']['field'] = 'uid';
+/* Relationship: Entity Reference: Referenced Entity */
+$handler->display->display_options['relationships']['field_resources_target_id']['id'] = 'field_resources_target_id';
+$handler->display->display_options['relationships']['field_resources_target_id']['table'] = 'field_data_field_resources';
+$handler->display->display_options['relationships']['field_resources_target_id']['field'] = 'field_resources_target_id';
+$handler->display->display_options['relationships']['field_resources_target_id']['relationship'] = 'nid';
 /* Field: COUNT(DISTINCT Content revision: Nid) */
 $handler->display->display_options['fields']['nid']['id'] = 'nid';
 $handler->display->display_options['fields']['nid']['table'] = 'node_revision';
@@ -385,4 +400,12 @@ $handler->display->display_options['filters']['state']['table'] = 'workbench_mod
 $handler->display->display_options['filters']['state']['field'] = 'state';
 $handler->display->display_options['filters']['state']['value'] = array(
   'needs_review' => 'needs_review',
+);
+/* Filter criterion: Content: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['relationship'] = 'nid';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'dataset' => 'dataset',
 );

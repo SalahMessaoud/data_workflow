@@ -41,3 +41,9 @@ ul.action-links li {
 .page-admin-workbench .nav-pills > li + li {
     margin-left: 5px;
 }
+
+.page-admin-workbench  li.active .link-badge {
+   background: #fff;
+   color: #005489;
+   border: 1px solid #005489;
+}
