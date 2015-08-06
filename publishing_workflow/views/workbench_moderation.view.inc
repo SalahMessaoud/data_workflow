@@ -217,6 +217,14 @@ $handler->display->display_options['filters']['type']['expose']['label'] = 'Type
 $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
 $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
 $handler->display->display_options['filters']['type']['expose']['remember'] = TRUE;
+/* Filter criterion: Content: Type */
+$handler->display->display_options['filters']['type_1']['id'] = 'type_1';
+$handler->display->display_options['filters']['type_1']['table'] = 'node';
+$handler->display->display_options['filters']['type_1']['field'] = 'type';
+$handler->display->display_options['filters']['type_1']['relationship'] = 'nid';
+$handler->display->display_options['filters']['type_1']['value'] = array(
+  'dataset' => 'dataset',
+);
 $handler->display->display_options['path'] = 'admin/workbench/needs-review';
 $handler->display->display_options['menu']['type'] = 'tab';
 $handler->display->display_options['menu']['title'] = 'Needs review';
@@ -307,6 +315,13 @@ $handler->display->display_options['filters']['type_1']['relationship'] = 'nid';
 $handler->display->display_options['filters']['type_1']['value'] = array(
   'dataset' => 'dataset',
 );
+/* Filter criterion: Workbench Moderation: State */
+$handler->display->display_options['filters']['state_2']['id'] = 'state_2';
+$handler->display->display_options['filters']['state_2']['table'] = 'workbench_moderation_node_history';
+$handler->display->display_options['filters']['state_2']['field'] = 'state';
+$handler->display->display_options['filters']['state_2']['value'] = array(
+  'draft' => 'draft',
+);
 $handler->display->display_options['path'] = 'admin/workbench/drafts';
 $handler->display->display_options['menu']['type'] = 'tab';
 $handler->display->display_options['menu']['title'] = 'My drafts';
@@ -338,13 +353,14 @@ $handler->display->display_options['relationships']['field_resources_target_id']
 $handler->display->display_options['relationships']['field_resources_target_id']['table'] = 'field_data_field_resources';
 $handler->display->display_options['relationships']['field_resources_target_id']['field'] = 'field_resources_target_id';
 $handler->display->display_options['relationships']['field_resources_target_id']['relationship'] = 'nid';
-/* Field: COUNT(DISTINCT Content revision: Nid) */
-$handler->display->display_options['fields']['nid']['id'] = 'nid';
-$handler->display->display_options['fields']['nid']['table'] = 'node_revision';
-$handler->display->display_options['fields']['nid']['field'] = 'nid';
-$handler->display->display_options['fields']['nid']['group_type'] = 'count_distinct';
-$handler->display->display_options['fields']['nid']['label'] = '';
-$handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+/* Field: COUNT(DISTINCT Content: Nid) */
+$handler->display->display_options['fields']['nid_1']['id'] = 'nid_1';
+$handler->display->display_options['fields']['nid_1']['table'] = 'node';
+$handler->display->display_options['fields']['nid_1']['field'] = 'nid';
+$handler->display->display_options['fields']['nid_1']['relationship'] = 'nid';
+$handler->display->display_options['fields']['nid_1']['group_type'] = 'count_distinct';
+$handler->display->display_options['fields']['nid_1']['label'] = '';
+$handler->display->display_options['fields']['nid_1']['element_label_colon'] = FALSE;
 /* Filter criterion: Workbench Moderation: State */
 $handler->display->display_options['filters']['state']['id'] = 'state';
 $handler->display->display_options['filters']['state']['table'] = 'workbench_moderation_node_history';
@@ -352,6 +368,7 @@ $handler->display->display_options['filters']['state']['field'] = 'state';
 $handler->display->display_options['filters']['state']['value'] = array(
   'draft' => 'draft',
 );
+$handler->display->display_options['filters']['state']['group'] = 1;
 /* Filter criterion: Content: Type */
 $handler->display->display_options['filters']['type']['id'] = 'type';
 $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -360,6 +377,12 @@ $handler->display->display_options['filters']['type']['relationship'] = 'nid';
 $handler->display->display_options['filters']['type']['value'] = array(
   'dataset' => 'dataset',
 );
+$handler->display->display_options['filters']['type']['group'] = 1;
+/* Filter criterion: Workbench Moderation: Current */
+$handler->display->display_options['filters']['is_current']['id'] = 'is_current';
+$handler->display->display_options['filters']['is_current']['table'] = 'workbench_moderation_node_history';
+$handler->display->display_options['filters']['is_current']['field'] = 'is_current';
+$handler->display->display_options['filters']['is_current']['value'] = '1';
 
 /* Display: Needs Review Badge */
 $handler = $view->new_display('menu_badge', 'Needs Review Badge', 'needs_review_badge');
@@ -387,10 +410,11 @@ $handler->display->display_options['relationships']['field_resources_target_id']
 $handler->display->display_options['relationships']['field_resources_target_id']['table'] = 'field_data_field_resources';
 $handler->display->display_options['relationships']['field_resources_target_id']['field'] = 'field_resources_target_id';
 $handler->display->display_options['relationships']['field_resources_target_id']['relationship'] = 'nid';
-/* Field: COUNT(DISTINCT Content revision: Nid) */
+/* Field: COUNT(DISTINCT Content: Nid) */
 $handler->display->display_options['fields']['nid']['id'] = 'nid';
-$handler->display->display_options['fields']['nid']['table'] = 'node_revision';
+$handler->display->display_options['fields']['nid']['table'] = 'node';
 $handler->display->display_options['fields']['nid']['field'] = 'nid';
+$handler->display->display_options['fields']['nid']['relationship'] = 'nid';
 $handler->display->display_options['fields']['nid']['group_type'] = 'count_distinct';
 $handler->display->display_options['fields']['nid']['label'] = '';
 $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
@@ -409,3 +433,8 @@ $handler->display->display_options['filters']['type']['relationship'] = 'nid';
 $handler->display->display_options['filters']['type']['value'] = array(
   'dataset' => 'dataset',
 );
+/* Filter criterion: Workbench Moderation: Current */
+$handler->display->display_options['filters']['is_current']['id'] = 'is_current';
+$handler->display->display_options['filters']['is_current']['table'] = 'workbench_moderation_node_history';
+$handler->display->display_options['filters']['is_current']['field'] = 'is_current';
+$handler->display->display_options['filters']['is_current']['value'] = '1';
